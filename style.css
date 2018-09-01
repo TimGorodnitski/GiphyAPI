@@ -1,0 +1,16 @@
+.animalButton {
+    margin:4px 4px;
+    background-color:lemonchiffon;
+    color:rebeccapurple;
+    font-size:18px;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#gifDiv {
+    display:inline-block;
+}
+
+.picDiv {
+    display:inline-block;
+    margin: 4px 5px;
+}
