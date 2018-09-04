@@ -2,13 +2,13 @@ let animals = ["dog", "cat", "bird"]
 
 for (i = 0; i < animals.length; i++) {
 
-    let b = $("<button>").val(animals[i]).text(animals[i]).addClass("animalButton");
-    $("#buttonDiv").append(b);
+    let newButton = $("<button>").val(animals[i]).text(animals[i]).addClass("animalButton");
+    $("#buttonDiv").append(newButton);
 
-}
+};
 
 
-$(".animalButton").on("click", function () {
+$(document).on("click", ".animalButton", function () {
     var animal = $(this).val();
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
 
@@ -41,7 +41,6 @@ $(".animalButton").on("click", function () {
 
 
 
-
 $(document).on("click", ".gif", function () {
 
     state = $(this).attr("data-state");
@@ -56,3 +55,12 @@ $(document).on("click", ".gif", function () {
         $(this).attr("data-state", "still");
     };
 });
+
+
+$("#submit").click(function () {
+
+    let b = $("<button>").val($("#newAnimal").val()).text($("#newAnimal").val()).addClass("animalButton");
+    $("#buttonDiv").append(b);
+
+});
+
