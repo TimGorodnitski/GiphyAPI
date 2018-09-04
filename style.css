@@ -13,4 +13,5 @@
 .picDiv {
     display:inline-block;
     margin: 4px 5px;
+    border: 1px solid grey;
 }

@@ -26,26 +26,28 @@ $(".animalButton").on("click", function () {
             let p = $("<p>").text(results[i].rating);
 
             let animalImage = $("<img>");
-            animalImage.attr("src", results[i].images.fixed_height.url).attr("data-state", "still");
+
+            animalImage.attr("src", results[i].images.fixed_height_still.url).attr("data-state", "still").attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url);
+            animalImage.addClass("gif");
             $(animalDiv).append(p);
             $(animalDiv).append(animalImage);
             $("#gifDiv").prepend(animalDiv);
         }
+
     })
 });
 
-$(".gif").on("click", function () {
+$(document).on("click", ".gif", function () {
 
     state = $(this).attr("data-state");
 
     if (state === "still") {
-      $(this).attr("src", $(this).attr("data-animate"));
-      $(this).attr("data-state", "animate");
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
     };
 
     if (state === "animate") {
-      $(this).attr("src", $(this).attr("data-still"));
-      $(this).attr("data-state", "still");
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
     };
-  });
-
+});
