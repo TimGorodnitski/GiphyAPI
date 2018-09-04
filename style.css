@@ -15,3 +15,9 @@
     margin: 4px 5px;
     border: 1px solid grey;
 }
+
+#formDiv {
+    position: absolute;
+    top:0;
+    right:0;
+}

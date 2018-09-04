@@ -7,6 +7,7 @@ for (i = 0; i < animals.length; i++) {
 
 }
 
+
 $(".animalButton").on("click", function () {
     var animal = $(this).val();
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -36,6 +37,10 @@ $(".animalButton").on("click", function () {
 
     })
 });
+
+
+
+
 
 $(document).on("click", ".gif", function () {
 
