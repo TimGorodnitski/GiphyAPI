@@ -1,16 +1,13 @@
 let animals = ["dog", "cat", "bird"]
 
 for (i = 0; i < animals.length; i++) {
-
     let newButton = $("<button>").val(animals[i]).text(animals[i]).addClass("animalButton");
     $("#buttonDiv").append(newButton);
-
 };
-
 
 $(document).on("click", ".animalButton", function () {
     var animal = $(this).val();
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=dc6zaTOxFJmzC&limit=10&rating=r&offset=" + Math.floor(Math.random() * 1000);
 
     $.ajax({
         url: queryURL,
@@ -24,22 +21,20 @@ $(document).on("click", ".animalButton", function () {
 
             let animalDiv = $("<div>").addClass("picDiv");
 
-            let p = $("<p>").text(results[i].rating);
+            let p = $("<p>").text("rating: " + results[i].rating);
 
             let animalImage = $("<img>");
 
             animalImage.attr("src", results[i].images.fixed_height_still.url).attr("data-state", "still").attr("data-still", results[i].images.fixed_height_still.url).attr("data-animate", results[i].images.fixed_height.url);
             animalImage.addClass("gif");
-            $(animalDiv).append(p);
             $(animalDiv).append(animalImage);
+            $(animalDiv).append(p);
+
             $("#gifDiv").prepend(animalDiv);
         }
 
     })
 });
-
-
-
 
 $(document).on("click", ".gif", function () {
 
@@ -55,7 +50,6 @@ $(document).on("click", ".gif", function () {
         $(this).attr("data-state", "still");
     };
 });
-
 
 $("#submit").click(function () {
 

@@ -4,10 +4,13 @@
     color:rebeccapurple;
     font-size:18px;
     font-family: Helvetica, Arial, sans-serif;
+    border-radius: 10px;
+    box-shadow: 2px 3px #777777;
 }
 
 #gifDiv {
     display:inline-block;
+    max-width:75%;
 }
 
 .picDiv {
@@ -17,7 +20,8 @@
 }
 
 #formDiv {
+    display:inline-block;
     position: absolute;
-    top:0;
-    right:0;
+    top:60px;
+    right:30px;
 }
